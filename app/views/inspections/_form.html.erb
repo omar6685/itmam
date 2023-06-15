@@ -1,0 +1,19 @@
+<%= semantic_form_for @inspection do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :company_name %>
+    <%= f.input :branchs_quantity %>
+    <%= f.input :company_status %>
+    <%= f.input :saudi_employees %>
+    <%= f.input :nonsaudi_employees %>
+    <%= f.input :salary_protection %>
+    <%= f.input :want_inspection %>
+    <%= f.input :personal_name %>
+    <%= f.input :phone_number %>
+    <%= f.input :email %>
+    <%= f.input :explanation %>
+  <% end %>
+
+  <%= f.actions do %>
+    <%= f.action :submit, :as => :input %>
+  <% end %>
+<% end %>

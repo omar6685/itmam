@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  company_name: MyString
+  branchs_quantity: 1
+  company_status: one
+  saudi_employees: 1
+  nonsaudi_employees: 1
+  salary_protection: false
+  want_inspection: false
+  personal_name: MyString
+  phone_number: 1
+  email: MyString
+  explanation: MyText
+
+two:
+  company_name: MyString
+  branchs_quantity: 1
+  company_status: two
+  saudi_employees: 1
+  nonsaudi_employees: 1
+  salary_protection: false
+  want_inspection: false
+  personal_name: MyString
+  phone_number: 1
+  email: MyString
+  explanation: MyText
