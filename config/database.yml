@@ -81,7 +81,4 @@ development:
 #
 production:
   <<: *default
-  database: itmam_production
-  username: omar6685
-  password: <%= ENV["ITMAM_DATABASE_PASSWORD"] %>
   url: <%= ENV['DATABASE_URL'] %>
