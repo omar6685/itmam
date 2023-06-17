@@ -7,7 +7,7 @@
 }
 
 .bg-im {
-    background-image: url(images/Rectangle\ 41.svg);
+    background-image: url(Rectangle.svg);
     /* Full height */
     height: 100vh;
     /* Center and scale the image nicely */
@@ -125,6 +125,16 @@
     padding-bottom: 3px;
     padding-right: 5px;
     padding-left: 5px;
+    text-align: center;
+    font-family: var(--font-family-segoeui-regular);
+}
+
+.text:hover {
+    transition: all .9s ease;
+    background: rgb(18 91 135);
+    border: 1px solid rgb(50 159 218);
+    color: var(--white);
+
 }
 
 .bg-1 {
