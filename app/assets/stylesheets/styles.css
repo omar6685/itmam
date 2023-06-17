@@ -7,7 +7,7 @@
 }
 
 .bg-im {
-    background-image: url(Rectangle.svg);
+    background: url(Rectangle.svg);
     /* Full height */
     height: 100vh;
     /* Center and scale the image nicely */
@@ -246,6 +246,7 @@
     top: 50%;
     left: 50%;
     color: white;
+    direction: rtl;
 }
 
 .inp-radio-l {
