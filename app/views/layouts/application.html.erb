@@ -11,9 +11,20 @@
     <%= javascript_include_tag "itmam" %>
     <%= stylesheet_link_tag 'styles', media: 'screen' %>
 
+    <script>
+      document.addEventListener("turbo:load", function() {
+        var body = document.querySelector("body");
+        if (body && body.dataset.page === "inspections-new") {
+          body.classList.add("bg-im-2");
+        } else {
+          body.classList.remove("bg-im-2");
+          body.classList.add("bg-im")
+        }
+      });
+    </script>
   </head>
 
-  <body class="bg-im">
+  <body data-page="<%= controller_name.dasherize %>-<%= action_name.dasherize %>">
     <%= yield %>
   </body>
 </html>
