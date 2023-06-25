@@ -1,69 +1,96 @@
-<%= form_for @inspection, html: { class: 'bg-2' } do |f| %>
-  <div class="form-step">
-    <div class="input-group">
-    
-    <h1 for="c-n-p" class="c-n">ماهي خدمة دراسة حالة المنشأة ( فحص المنشأة ) ؟</h1>
-    <p class="inp-p" id="c-n">هي خدمة ضمن الخدمات المقدمة من شركة
-         إتمام العربية تهدف لدراسة الوضع 
-        القائم للمنشأة لدى الجهات الحكومية واكتشاف الأخطاء 
-        الكامنة والتي قد تتسبب في الهدر المالي الخفي او
-         تعطل الخدمات، ثم تقديمها بتقرير مفصل للعميل مع 
-        المقترحات والتوصيات اللازمة لحل تلك الأخطاء وتصحيحها.</p>
-  </div>
-    <a class="n-p-p" target="_blank" download="دراسة حالة منشأة ( فحص المنشأة ) (1).pdf" href="https://gray-ilise-88.tiiny.site/">حمل دليل دراسة حالة المنشأة</a>
+<%= form_for @inspection, html: { class: 'form' } do |f| %>
 
-  </div>    
 
-  <div class="form-step">
+      <div class="input-box">
   
-  <%= f.label :company_name, "اسم المنشأة", class: "c-n" %>
-  <%= f.text_field :company_name, class: "inp", id: "c-n" %>
+        <%= f.label :company_name, "اسم المنشأة", class: "label" %>
+        <%= f.text_field :company_name, class: "input", id: "c-n",  placeholder: "اسم المنشأة" %>
+      </div>
 
-      <%= f.label :branchs_quantity, "عدد فروع المنشأة", class: "c-n" %>
-      <%= f.number_field :branchs_quantity, class: "inp-numbers", id: "c-nu", min: 0, value: 1 %>
-   
+      <div class="input-box">
 
-      <%= f.label :company_status, "نطاق المنشأة", class: "c-n" %>
-      <%= f.select :company_status_id, options_for_select(CompanyStatus.all.map { |status| [status.status, status.id] }), {}, class: "inp", id: "c-s" %>
-    
-      <%= f.label :saudi_employees, "عدد السعوديين في المنشأة", class: "c-n" %>
-      <%= f.number_field :saudi_employees, class: "inp-numbers", id: "c-ep-s", min: 0, value: 1 %>
-       <%= f.label :nonsaudi_employees, "عدد الأجانب في المنشأة", class: "c-n" %>
-      <%= f.number_field :nonsaudi_employees, class: "inp-numbers", id: "c-ep-f", min: 0, value: 1 %>
-  
-      <p class="c-n">هل المنشأة ملتزمة بحماية الأجور</p>
-      <div class="inp-radio">
-        <%= f.label :salary_protection, "نعم"%>
-        <%= f.radio_button :salary_protection, true, class: "inp-radio-l"%>
+        <%= f.label :branchs_quantity, "عدد فروع المنشأة", class: "label" %>
+        <%= f.number_field :branchs_quantity, class: "input", id: "c-nu", min: 0, value: 1, placeholder: "عدد فروع المنشأة" %>
+      </div>
 
-        <%= f.label :salary_protection, "لا" %>
-        <%= f.radio_button :salary_protection, false %>
+      <div class="input-box">
+
+        <%= f.label :company_status, "نطاق المنشأة", class: "label" %>
+        <%= f.select :company_status_id, options_for_select(CompanyStatus.all.map { |status| [status.status, status.id] }), {}, class: "input", id: "c-s" %>
+      </div>
+      <div class="column">
+        <div class="input-box">
+
+          <%= f.label :saudi_employees, "عدد السعوديين في المنشأة", class: "label" %>
+          <%= f.number_field :saudi_employees, class: "input", id: "c-ep-s", min: 0, value: 1 %>
+        </div>
+
+        <div class="input-box">
+
+          <%= f.label :nonsaudi_employees, "عدد الأجانب في المنشأة", class: "label" %>
+          <%= f.number_field :nonsaudi_employees, class: "input", id: "c-ep-f", min: 0, value: 1 %>
+        </div>
+      </div>
+
+
+      <div class="gender-box">
+
+        <h3>هل المنشأة ملتزمة بحماية الأجور</h3>
+        <div class="gender-option">
+          <div class="gender">
+
+            <%= f.label :salary_protection, "نعم", class: "label"%>
+            <%= f.radio_button :salary_protection, true%>
+          </div>
+          <div class="gender">
+
+            <%= f.label :salary_protection, "لا", class: "label" %>
+            <%= f.radio_button :salary_protection, false %>
+          </div>
+        </div>
       </div>
    
-      <label for="c-in-wi" class="c-n">هل ترغب بعمل فحص حالة المنشأة</label>
-      <div class="inp-radio">
-        <%= f.label :want_inspection, "نعم"%>
-        <%= f.radio_button :want_inspection, true, class: "inp-radio-l" %>
+      <div class="gender-box">
 
-        <%= f.label :want_inspection, "لا" %>
-        <%= f.radio_button :want_inspection, false %>
+        <h3>هل ترغب بعمل فحص حالة المنشأة</h3>
+        <div class="gender-option">
+          <div class="gender">
+
+            <%= f.label :want_inspection, "نعم", class: "label"%>
+            <%= f.radio_button :want_inspection, true, class: "i"%>
+          </div>
+          <div class="gender">
+
+            <%= f.label :want_inspection, "لا", class: "label" %>
+            <%= f.radio_button :want_inspection, false %>
+          </div>
+        </div>
       </div>
-   
-      <%= f.label :personal_name, "الإسم الشخصي", class: "c-n" %>
-      <%= f.text_field :personal_name, class: "inp", id: "c-p-n" %>
-    
-      <%= f.label :phone_number, "رقم التواصل", class: "c-n" %>
-      <%= f.text_field :phone_number, class: "inp", id: "c-ph-n" %>
-    
-      <%= f.label :email, "الايميل", class: "c-n" %>
-      <%= f.email_field :email, class: "inp", id: "c-e" %>
-    
-      <%= f.label :explanation, "اشرح المشكلة", class: "c-n" %>
-      <%= f.text_area :explanation, class: "inp-t-a", id: "c-p-x" %>
-   
-    <div class="actions btns">
-    <%= f.submit "افحص منشأتك", class: "n-x" %>
-  </div>
+      <div class="input-box">
+
+        <%= f.label :personal_name, "الإسم الشخصي", class: "label" %>
+        <%= f.text_field :personal_name, class: "input", id: "c-p-n", placeholder: "الاسم الشخصي" %>
+      </div>
+
+      <div class="input-box">
+
+        <%= f.label :phone_number, "رقم التواصل", class: "label" %>
+        <%= f.text_field :phone_number, class: "input", id: "c-ph-n", placeholder: "رقم التواصل" %>
+      </div>
+
+      <div class="input-box">
+
+        <%= f.label :email, "الايميل", class: "label" %>
+        <%= f.email_field :email, class: "input", id: "c-e", placeholder: "البريد الإلكتروني" %>
+      </div>
+
+      <div class="input-box">
+
+        <%= f.label :explanation, "اشرح المشكلة", class: "label" %>
+        <%= f.text_area :explanation, class: "textarea", id: "c-p-x" %>
+      </div>
+
+    <%= f.submit "افحص منشأتك", class: "button" %>
   </div>
 
 

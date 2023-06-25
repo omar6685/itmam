@@ -10,15 +10,16 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <%= javascript_include_tag "itmam" %>
     <%= stylesheet_link_tag 'styles', media: 'screen' %>
+    <%= stylesheet_link_tag 'style', media: 'screen' %>
 
     <script>
       document.addEventListener("turbo:load", function() {
         var body = document.querySelector("body");
-        if (body && body.dataset.page === "inspections-new") {
-          body.classList.add("bg-im-2");
+        if (body && body.dataset.page === "home-page-index") {
+          body.classList.add("bg-im");
         } else {
-          body.classList.remove("bg-im-2");
-          body.classList.add("bg-im")
+          body.classList.remove("bg-im");
+          body.classList.add("bg-im-2")
         }
       });
     </script>

@@ -14,7 +14,7 @@ body {
     align-items: center;
     justify-content: center;
     padding: 20px;
-    background-image: url(images/Rectangle\ 41.svg);
+    background: url(Rectangle.svg);
 
     display: flex;
     flex-direction: column;
@@ -29,6 +29,12 @@ body {
     border-radius: 8px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     direction: rtl;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        max-width: 100%;
+    }
 }
 
 .container header {
@@ -48,12 +54,12 @@ body {
     margin-top: 20px;
 }
 
-.input-box label {
+.input-box .label {
     color: #333;
     font-size: larger;
 }
 
-.form :where(.input-box input, .select-box, select, textarea) {
+.form :where(.input-box .input, .select-box, select, .textarea) {
     position: relative;
     height: 50px;
     width: 100%;
@@ -71,7 +77,7 @@ body {
     height: 120px;
 }
 
-.input-box input:focus {
+.input-box .input:focus {
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
 }
 
@@ -102,19 +108,19 @@ body {
     column-gap: 5px;
 }
 
-.gender input {
+.gender .input {
     accent-color: rgb(130, 106, 251);
 }
 
-.form :where(.gender input, .gender label) {
+.form :where(.gender .input, .gender .label) {
     cursor: pointer;
 }
 
-.gender label {
+.gender .label {
     color: #707070;
 }
 
-.address :where(input, .select-box) {
+.address :where(.input, .select-box) {
     margin-top: 15px;
 }
 
@@ -127,7 +133,7 @@ body {
     font-size: 1rem;
 }
 
-.form button {
+.form .button {
     display: block;
     height: 55px;
     margin: auto;
@@ -143,7 +149,7 @@ body {
     border-radius: 11px;
 }
 
-.form button:hover {
+.form .button:hover {
     background: rgb(88, 56, 250);
 }
 

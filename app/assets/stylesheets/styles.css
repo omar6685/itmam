@@ -7,7 +7,7 @@
 }
 
 .bg-im {
-    background-image: url(images/Rectangle\ 41.svg);
+    background: url(Rectangle.svg);
     /* Full height */
     height: 100vh;
     /* Center and scale the image nicely */
@@ -19,20 +19,15 @@
 }
 
 .bg-im-2 {
-    background-image: url(images/Rectangle\ 41.svg);
-    /* Full height */
-    height: 430vh;
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: url(Rectangle.svg);
+    display: flex;
+    flex-direction: column;
 
-}
-
-@media screen and (max-width: 425px) {
-    .bg-im-2 {
-        height: 465vh;
-    }
 }
 
 
@@ -92,7 +87,7 @@
 .deco {
     position: relative;
     margin: auto;
-    bottom: -5%;
+    bottom: -40%;
     transform: translateY(100%);
     transition: transform 2.5s;
     z-index: -1;
