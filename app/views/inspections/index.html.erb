@@ -1,14 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Inspections</h1>
 
-<div id="inspections">
+<div id="inspections" class="columns mt-6 is-centered is-multiline">
   <% @inspections.each do |inspection| %>
-    <%= render inspection %>
-    <p>
-      <%= link_to "Show this inspection", inspection %>
-    </p>
+    <div class="column is-one-third">
+      <%= render inspection %>
+    </div>
   <% end %>
 </div>
 
-<%= link_to "New inspection", new_inspection_path %>

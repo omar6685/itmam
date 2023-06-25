@@ -1,57 +1,66 @@
-<div id="<%= dom_id inspection %>">
-  <p>
-    <strong>Company name:</strong>
-    <%= inspection.company_name %>
-  </p>
+<div id="<%= dom_id(inspection)%>"  class="card">
+    <header class="card-header">
+      <p class="card-header-title">
+        <%= inspection.company_name %>
+      </p>
+    </header>
+    <div class="card-content">
+      <div class="content">
+        <p class="has-text-weight-bold">
+          <strong>Branches quantity:</strong>
+          <%= inspection.branchs_quantity %>
+        </p>
 
-  <p>
-    <strong>Branchs quantity:</strong>
-    <%= inspection.branchs_quantity %>
-  </p>
+        <p class="has-text-weight-bold">
+          <strong>Company status:</strong>
+          <%= inspection.company_status_id %>
+        </p>
 
-  <p>
-    <strong>Company status:</strong>
-    <%= inspection.company_status_id %>
-  </p>
+        <p class="has-text-weight-bold">
+          <strong>Saudi employees:</strong>
+          <%= inspection.saudi_employees %>
+        </p>
 
-  <p>
-    <strong>Saudi employees:</strong>
-    <%= inspection.saudi_employees %>
-  </p>
+        <p class="has-text-weight-bold">
+          <strong>Non-Saudi employees:</strong>
+          <%= inspection.nonsaudi_employees %>
+        </p>
 
-  <p>
-    <strong>Nonsaudi employees:</strong>
-    <%= inspection.nonsaudi_employees %>
-  </p>
+        <p class="has-text-weight-bold">
+          <strong>Salary protection:</strong>
+          <%= inspection.salary_protection %>
+        </p>
 
-  <p>
-    <strong>Salary protection:</strong>
-    <%= inspection.salary_protection %>
-  </p>
+        <p class="has-text-weight-bold">
+          <strong>Want inspection:</strong>
+          <%= inspection.want_inspection %>
+        </p>
 
-  <p>
-    <strong>Want inspection:</strong>
-    <%= inspection.want_inspection %>
-  </p>
+        <p class="has-text-weight-bold">
+          <strong>Personal name:</strong>
+          <%= inspection.personal_name %>
+        </p>
 
-  <p>
-    <strong>Personal name:</strong>
-    <%= inspection.personal_name %>
-  </p>
+        <p class="has-text-weight-bold">
+          <strong>Phone number:</strong>
+          <%= inspection.phone_number %>
+        </p>
 
-  <p>
-    <strong>Phone number:</strong>
-    <%= inspection.phone_number %>
-  </p>
+        <p class="has-text-weight-bold">
+          <strong>Email:</strong>
+          <%= inspection.email %>
+        </p>
 
-  <p>
-    <strong>Email:</strong>
-    <%= inspection.email %>
-  </p>
+        <p>
+          <strong  class="has-text-weight-bold">Explanation:</strong>
+          <br>
+          <br>
+          <%= inspection.explanation %>
+        </p>
 
-  <p>
-    <strong>Explanation:</strong>
-    <%= inspection.explanation %>
-  </p>
-
+      </div>
+    </div>
 </div>
+
+
+
