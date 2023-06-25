@@ -444,3 +444,7 @@
 .btns {
     margin: auto;
 }
+
+.rtl {
+    direction: rtl;
+}

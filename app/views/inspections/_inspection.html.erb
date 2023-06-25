@@ -1,4 +1,4 @@
-<div id="<%= dom_id(inspection)%>"  class="card">
+<div id="<%= dom_id(inspection)%>"  class="card rtl">
     <header class="card-header">
       <p class="card-header-title">
         <%= inspection.company_name %>
@@ -7,52 +7,52 @@
     <div class="card-content">
       <div class="content">
         <p class="has-text-weight-bold">
-          <strong>Branches quantity:</strong>
+          <strong>عدد فروع المنشأة:</strong>
           <%= inspection.branchs_quantity %>
         </p>
 
         <p class="has-text-weight-bold">
-          <strong>Company status:</strong>
+          <strong>نطاق المنشأة:</strong>
           <%= inspection.company_status_id %>
         </p>
 
         <p class="has-text-weight-bold">
-          <strong>Saudi employees:</strong>
+          <strong>عدد السعوديين:</strong>
           <%= inspection.saudi_employees %>
         </p>
 
         <p class="has-text-weight-bold">
-          <strong>Non-Saudi employees:</strong>
+          <strong>عدد الاجانب:</strong>
           <%= inspection.nonsaudi_employees %>
         </p>
 
         <p class="has-text-weight-bold">
-          <strong>Salary protection:</strong>
+          <strong>هل المنشأة ملتزمة بحماية الأجور:</strong>
           <%= inspection.salary_protection %>
         </p>
 
         <p class="has-text-weight-bold">
-          <strong>Want inspection:</strong>
+          <strong>هل ترغب بعمل فحص حالة المنشأة:</strong>
           <%= inspection.want_inspection %>
         </p>
 
         <p class="has-text-weight-bold">
-          <strong>Personal name:</strong>
+          <strong>الاسم الشخصي:</strong>
           <%= inspection.personal_name %>
         </p>
 
         <p class="has-text-weight-bold">
-          <strong>Phone number:</strong>
+          <strong>رقم التواصل:</strong>
           <%= inspection.phone_number %>
         </p>
 
         <p class="has-text-weight-bold">
-          <strong>Email:</strong>
+          <strong>البريد:</strong>
           <%= inspection.email %>
         </p>
 
         <p>
-          <strong  class="has-text-weight-bold">Explanation:</strong>
+          <strong  class="has-text-weight-bold">شرح المشكلة:</strong>
           <br>
           <br>
           <%= inspection.explanation %>
