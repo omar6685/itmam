@@ -1,0 +1,2 @@
+module ActivityTablesHelper
+end

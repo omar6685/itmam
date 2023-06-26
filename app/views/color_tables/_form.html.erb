@@ -1,0 +1,9 @@
+<%= semantic_form_for @color_table do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :color %>
+  <% end %>
+
+  <%= f.actions do %>
+    <%= f.action :submit, :as => :input %>
+  <% end %>
+<% end %>

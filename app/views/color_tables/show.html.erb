@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @color_table %>
+
+<div>
+  <%= link_to "Edit this color table", edit_color_table_path(@color_table) %> |
+  <%= link_to "Back to color tables", color_tables_path %>
+
+  <%= button_to "Destroy this color table", @color_table, method: :delete %>
+</div>

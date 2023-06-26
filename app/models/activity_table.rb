@@ -1,0 +1,2 @@
+class ActivityTable < ApplicationRecord
+end
