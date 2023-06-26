@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   resources :nitak_tables
-  resources :color_tables
   resources :activity_tables
   get 'home_page/index'
   root "home_page#index"

@@ -17,7 +17,7 @@ class NitakTablesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create nitak_table" do
     assert_difference("NitakTable.count") do
-      post nitak_tables_url, params: { nitak_table: { activity_table_id: @nitak_table.activity_table_id, color_table_id: @nitak_table.color_table_id, fixed_value: @nitak_table.fixed_value, yearly_value: @nitak_table.yearly_value } }
+      post nitak_tables_url, params: { nitak_table: { activity_table_id: @nitak_table.activity_table_id, company_status_id: @nitak_table.company_status_id, fixed_value: @nitak_table.fixed_value, yearly_value: @nitak_table.yearly_value } }
     end
 
     assert_redirected_to nitak_table_url(NitakTable.last)
@@ -34,7 +34,7 @@ class NitakTablesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update nitak_table" do
-    patch nitak_table_url(@nitak_table), params: { nitak_table: { activity_table_id: @nitak_table.activity_table_id, color_table_id: @nitak_table.color_table_id, fixed_value: @nitak_table.fixed_value, yearly_value: @nitak_table.yearly_value } }
+    patch nitak_table_url(@nitak_table), params: { nitak_table: { activity_table_id: @nitak_table.activity_table_id, company_status_id: @nitak_table.company_status_id, fixed_value: @nitak_table.fixed_value, yearly_value: @nitak_table.yearly_value } }
     assert_redirected_to nitak_table_url(@nitak_table)
   end
 

@@ -15,7 +15,7 @@ class NitakTablesTest < ApplicationSystemTestCase
     click_on "New nitak table"
 
     fill_in "Activity table", with: @nitak_table.activity_table_id
-    fill_in "Color table", with: @nitak_table.color_table_id
+    fill_in "Company status", with: @nitak_table.company_status_id
     fill_in "Fixed value", with: @nitak_table.fixed_value
     fill_in "Yearly value", with: @nitak_table.yearly_value
     click_on "Create Nitak table"
@@ -29,7 +29,7 @@ class NitakTablesTest < ApplicationSystemTestCase
     click_on "Edit this nitak table", match: :first
 
     fill_in "Activity table", with: @nitak_table.activity_table_id
-    fill_in "Color table", with: @nitak_table.color_table_id
+    fill_in "Company status", with: @nitak_table.company_status_id
     fill_in "Fixed value", with: @nitak_table.fixed_value
     fill_in "Yearly value", with: @nitak_table.yearly_value
     click_on "Update Nitak table"

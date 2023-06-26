@@ -65,6 +65,6 @@ class NitakTablesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def nitak_table_params
-      params.require(:nitak_table).permit(:activity_table_id, :color_table_id, :fixed_value, :yearly_value)
+      params.require(:nitak_table).permit(:activity_table_id, :company_status_id, :fixed_value, :yearly_value)
     end
 end

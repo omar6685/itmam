@@ -2,12 +2,12 @@
 
 one:
   activity_table: one
-  color_table: one
+  company_status: one
   fixed_value: 1.5
   yearly_value: 1.5
 
 two:
   activity_table: two
-  color_table: two
+  company_status: two
   fixed_value: 1.5
   yearly_value: 1.5

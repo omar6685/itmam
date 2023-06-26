@@ -10,18 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_26_112157) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_26_120409) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "activity_tables", force: :cascade do |t|
     t.string "activitiy"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "color_tables", force: :cascade do |t|
-    t.string "color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -51,16 +45,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_26_112157) do
 
   create_table "nitak_tables", force: :cascade do |t|
     t.bigint "activity_table_id", null: false
-    t.bigint "color_table_id", null: false
+    t.bigint "company_status_id", null: false
     t.float "fixed_value"
     t.float "yearly_value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["activity_table_id"], name: "index_nitak_tables_on_activity_table_id"
-    t.index ["color_table_id"], name: "index_nitak_tables_on_color_table_id"
+    t.index ["company_status_id"], name: "index_nitak_tables_on_company_status_id"
   end
 
   add_foreign_key "inspections", "company_statuses"
   add_foreign_key "nitak_tables", "activity_tables"
-  add_foreign_key "nitak_tables", "color_tables"
+  add_foreign_key "nitak_tables", "company_statuses"
 end
