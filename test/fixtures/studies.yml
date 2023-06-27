@@ -1,0 +1,55 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  foreigner: 1
+  saudi: 1
+  ajier: 1
+  special_foreigner: 1
+  special_saudis: 1
+  localization_rate: 1.5
+  saudi_four: 1
+  saudi_three_four: 1
+  saudi_three: 1
+  visa: 1
+  saudi_disable: 1
+  adaptation: false
+  saudi_jailed: 1
+  saudi_student: 1
+  saudi_online: 1
+  saudi_player: 1
+  saudi_loan_player: 1
+  foreigner_like_saudi: 1
+  foreigner_like_foreigner: 1
+  specialy_foreigner: 1
+  tribe_saudi: 1
+  gulf_citizen: 1
+  owner: 1
+  red_week: 1
+  uncounted_saudi: 1
+
+two:
+  foreigner: 1
+  saudi: 1
+  ajier: 1
+  special_foreigner: 1
+  special_saudis: 1
+  localization_rate: 1.5
+  saudi_four: 1
+  saudi_three_four: 1
+  saudi_three: 1
+  visa: 1
+  saudi_disable: 1
+  adaptation: false
+  saudi_jailed: 1
+  saudi_student: 1
+  saudi_online: 1
+  saudi_player: 1
+  saudi_loan_player: 1
+  foreigner_like_saudi: 1
+  foreigner_like_foreigner: 1
+  specialy_foreigner: 1
+  tribe_saudi: 1
+  gulf_citizen: 1
+  owner: 1
+  red_week: 1
+  uncounted_saudi: 1
