@@ -1,0 +1,2 @@
+module NitakTablesHelper
+end

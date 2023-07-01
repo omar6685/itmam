@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_01_140749) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_01_160315) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -52,6 +52,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_01_140749) do
     t.index ["company_status_id"], name: "index_inspections_on_company_status_id"
   end
 
+  create_table "nitak_tables", force: :cascade do |t|
+    t.bigint "activity_table_id", null: false
+    t.bigint "company_status_id", null: false
+    t.decimal "fixed_value"
+    t.decimal "yearly_value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["activity_table_id"], name: "index_nitak_tables_on_activity_table_id"
+    t.index ["company_status_id"], name: "index_nitak_tables_on_company_status_id"
+  end
+
   create_table "studies", force: :cascade do |t|
     t.bigint "company_size_id", null: false
     t.integer "foreigner"
@@ -87,5 +98,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_01_140749) do
 
   add_foreign_key "activity_tables", "studies"
   add_foreign_key "inspections", "company_statuses"
+  add_foreign_key "nitak_tables", "activity_tables"
+  add_foreign_key "nitak_tables", "company_statuses"
   add_foreign_key "studies", "company_sizes"
 end
