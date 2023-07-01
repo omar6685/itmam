@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :company_sizes
   get 'home_page/index'
   root "home_page#index"
   resources :inspections
