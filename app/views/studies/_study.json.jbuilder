@@ -1,0 +1,2 @@
+json.extract! study, :id, :company_size_id, :foreigner, :saudi, :ajier, :special_foreigner, :special_saudis, :localization_rate, :saudi_four, :saudi_three_four, :saudi_three, :visa, :saudi_disable, :adaptation, :saudi_jailed, :saudi_student, :saudi_online, :saudi_player, :saudi_loan_player, :foreigner_like_saudi, :foreigner_like_foreigner, :specialy_foreigner, :tribe_saudi, :gulf_citizen, :owner, :red_week, :uncounted_saudi, :created_at, :updated_at
+json.url study_url(study, format: :json)
