@@ -1,4 +1,22 @@
 <div id="<%= dom_id study %>">
+
+  <p>
+    <strong>Activity:</strong>
+    <ul>
+      <% study.activity_tables.each do |activity_table| %>
+        <li>
+          <%= activity_table.activity %>
+          <%= activity_table.active ? "✅" : "❌" %>
+        </li>
+      <% end %>
+    </ul>
+  </p>
+
+  <p>
+    <strong>Branch:</strong>
+    <%= study.branch %>
+  </p>
+
   <p>
     <strong>Company size:</strong>
     <%= study.company_size_id %>

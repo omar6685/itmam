@@ -1,5 +1,19 @@
-<%= semantic_form_for @study do |f| %>
+<%= semantic_form_for @study, data: { controller: "nested-form", nested_form_wrapper_selector_value: '.nested-form-wrapper' } do |f| %>
   <%= f.inputs do %>
+  <%# Start Custom Logic Here %>
+  <template data-nested-form-target="template">
+    <%= f.fields_for :activity_tables, ActivityTable.new, child_index: "NEW_RECORD" do |activity_table_fields| %>
+      <%= render "studies/study_activity_table_form", f: activity_table_fields %>
+    <% end %>
+  </template>
+  <%= f.fields_for :activity_tables do |activity_table_fields| %>
+    <%= render "studies/study_activity_table_form", f: activity_table_fields %>
+  <% end %>
+  <!-- Inserted elements will be injected before that target. -->
+  <div data-nested-form-target="target"></div>
+  <button type="button" data-action="nested-form#add">Add activity</button>
+  <%# End Custom Logic %>
+    <%= f.input :branch %>
     <%= f.input :company_size %>
     <%= f.input :foreigner %>
     <%= f.input :saudi %>

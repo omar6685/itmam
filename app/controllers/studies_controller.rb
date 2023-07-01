@@ -13,6 +13,7 @@ class StudiesController < ApplicationController
   # GET /studies/new
   def new
     @study = Study.new
+    @study.activity_tables.build
   end
 
   # GET /studies/1/edit
@@ -65,6 +66,6 @@ class StudiesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def study_params
-      params.require(:study).permit(:company_size_id, :foreigner, :saudi, :ajier, :special_foreigner, :special_saudis, :localization_rate, :saudi_four, :saudi_three_four, :saudi_three, :visa, :saudi_disable, :adaptation, :saudi_jailed, :saudi_student, :saudi_online, :saudi_player, :saudi_loan_player, :foreigner_like_saudi, :foreigner_like_foreigner, :specialy_foreigner, :tribe_saudi, :gulf_citizen, :owner, :red_week, :uncounted_saudi)
+      params.require(:study).permit(:branch, :company_size_id, :foreigner, :saudi, :ajier, :special_foreigner, :special_saudis, :localization_rate, :saudi_four, :saudi_three_four, :saudi_three, :visa, :saudi_disable, :adaptation, :saudi_jailed, :saudi_student, :saudi_online, :saudi_player, :saudi_loan_player, :foreigner_like_saudi, :foreigner_like_foreigner, :specialy_foreigner, :tribe_saudi, :gulf_citizen, :owner, :red_week, :uncounted_saudi, activity_tables_attributes: [:id, :activity, :active, :_destroy])
     end
 end
