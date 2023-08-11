@@ -1,18 +1,19 @@
 
-window.addEventListener("load", function () {
-    var logo = document.getElementById("logo");
-    var deco = document.getElementById("deco");
-    var text = document.getElementById("text");
 
-    // Animate the logo
-    logo.style.width = "106px";
-    logo.style.opacity = "1";
 
-    // Animate the deco
-    deco.style.transform = "translateY(0)";
+const mainImage = document.querySelector(".main-image");
+const imageSecondery = document.querySelector(".image-secondery");
 
-    // Animate the button
-    text.style.opacity = "1"
+window.addEventListener('scroll', () => {
+    let scroll = window.pageYOffset;
+
+    // Calculate the rotation angle based on the scroll position
+    let rotation = (scroll / (document.documentElement.scrollHeight - window.innerHeight)) * 150;
+
+    // Apply the rotation to the main image
+    mainImage.style.transform = `rotate(${rotation}deg)`;
+
 
 });
 
+// Add the following code inside the window.addEventListener('scroll', () => {}) block
