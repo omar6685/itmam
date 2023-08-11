@@ -4,6 +4,7 @@ html {
 
 body {
     background: #EDEDF0;
+    overflow: hidden;
 }
 
 .nav {
