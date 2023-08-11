@@ -20,7 +20,7 @@ body {
     flex-direction: column;
 }
 
-.container {
+.container-01 {
     position: relative;
     max-width: 80%;
     width: 100%;
@@ -32,12 +32,12 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-    .container {
+    .container-01 {
         max-width: 100%;
     }
 }
 
-.container header {
+.container-01 header {
     font-size: 1.5rem;
     color: #333;
     font-weight: 500;
@@ -45,7 +45,7 @@ body {
     font-size: x-large;
 }
 
-.container .form {
+.container-01 .form {
     margin-top: 30px;
 }
 
