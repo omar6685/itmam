@@ -6,27 +6,18 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <%= javascript_include_tag "itmam" %>
+    <!--<%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag 'styles', media: 'screen' %>
     <%= stylesheet_link_tag 'style', media: 'screen' %>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">-->
+    <%= stylesheet_link_tag 'style3', media: 'screen' %>
 
-    <script>
-      document.addEventListener("turbo:load", function() {
-        var body = document.querySelector("body");
-        if (body && body.dataset.page === "home-page-index") {
-          body.classList.add("bg-im");
-        } else {
-          body.classList.remove("bg-im");
-          body.classList.add("bg-im-2")
-        }
-      });
-    </script>
   </head>
 
-  <body data-page="<%= controller_name.dasherize %>-<%= action_name.dasherize %>">
+  <body>
     <%= yield %>
+    <%= javascript_include_tag "itmam" %>
   </body>
 </html>

@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  activity_table: one
+  company_status: one
+  fixed_value: 9.99
+  yearly_value: 9.99
+
+two:
+  activity_table: two
+  company_status: two
+  fixed_value: 9.99
+  yearly_value: 9.99

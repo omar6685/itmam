@@ -1,0 +1,9 @@
+<% if f.object %>
+  <div class="nested-form-wrapper" data-new-record="<%= f.object.new_record? %>">
+    <%= f.label :activity %>
+    <%= f.text_field :activity %>
+    <%= f.label :active %>
+    <%= f.check_box :active %>
+    <button type="button" data-action="nested-form#remove">Remove activity</button>
+  </div>
+<% end %>

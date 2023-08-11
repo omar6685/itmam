@@ -1,0 +1,48 @@
+<%= semantic_form_for @study, data: { controller: "nested-form", nested_form_wrapper_selector_value: '.nested-form-wrapper' } do |f| %>
+  <%= f.inputs do %>
+  <%# Start Custom Logic Here %>
+  <template data-nested-form-target="template">
+    <%= f.fields_for :activity_tables, ActivityTable.new, child_index: "NEW_RECORD" do |activity_table_fields| %>
+      <%= render "studies/study_activity_table_form", f: activity_table_fields %>
+    <% end %>
+  </template>
+  <%= f.fields_for :activity_tables do |activity_table_fields| %>
+    <%= render "studies/study_activity_table_form", f: activity_table_fields %>
+  <% end %>
+  <!-- Inserted elements will be injected before that target. -->
+  <div data-nested-form-target="target"></div>
+  <button type="button" data-action="nested-form#add">Add activity</button>
+  <%# End Custom Logic %>
+    <%= f.input :branch %>
+    <%= f.input :company_size, as: :select, collection: CompanySize.pluck(:size, :id), include_blank: true  %>
+    <%= f.input :foreigner %>
+    <%= f.input :saudi %>
+    <%= f.input :ajier %>
+    <%= f.input :special_foreigner %>
+    <%= f.input :special_saudis %>
+    <%= f.input :localization_rate %>
+    <%= f.input :saudi_four %>
+    <%= f.input :saudi_three_four %>
+    <%= f.input :saudi_three %>
+    <%= f.input :visa %>
+    <%= f.input :saudi_disable %>
+    <%= f.input :adaptation %>
+    <%= f.input :saudi_jailed %>
+    <%= f.input :saudi_student %>
+    <%= f.input :saudi_online %>
+    <%= f.input :saudi_player %>
+    <%= f.input :saudi_loan_player %>
+    <%= f.input :foreigner_like_saudi %>
+    <%= f.input :foreigner_like_foreigner %>
+    <%= f.input :specialy_foreigner %>
+    <%= f.input :tribe_saudi %>
+    <%= f.input :gulf_citizen %>
+    <%= f.input :owner %>
+    <%= f.input :red_week %>
+    <%= f.input :uncounted_saudi %>
+  <% end %>
+
+  <%= f.actions do %>
+    <%= f.action :submit, :as => :input %>
+  <% end %>
+<% end %>

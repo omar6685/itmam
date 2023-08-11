@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @nitak_table %>
+
+<div>
+  <%= link_to "Edit this nitak table", edit_nitak_table_path(@nitak_table) %> |
+  <%= link_to "Back to nitak tables", nitak_tables_path %>
+
+  <%= button_to "Destroy this nitak table", @nitak_table, method: :delete %>
+</div>

@@ -1,9 +1,87 @@
-<div class="containerr">
-    <%= image_tag('Group 32.svg', class: 'logo', id: "logo") %>
-  <div id="text" class="text" >
-    <%= link_to "افحص منشأتك", new_inspection_path %>
+    <nav class="nav ">
+            <div href="#default" class="logo"><%= image_tag('logo.PNG', class: 'img_logo') %></div>
+            <div id="mainListDiv" class="main_list">
+            <ul class="nav">
+                <li class="nav-item"><a class="active" href="#home">Home</a></li>
+                <li class="nav-item"><a href="#contact">Contact</a></li>
+                <li class="nav-item"><a href="#about">About</a></li>
+            </ul>
+            </div>
+    </nav>
+<div class="container">
+  <div class="hero">
+    <div  class="mx_wi">
+    <h2 class="font-96">Manage your Business</h2>
+    <p class="font-20">Etmam Al-Arabia is a newly established Saudi company that keeps pace with rapid changes and developments in the field of e-government. Our team consists of experts in e-government relations and field workers with high efficiency. We also have an expert team in human resources, medical insurance, and electronic marketing.</p>
+    <div class="hero-button">
+      <%= image_tag('Group 32.svg', class: 'wi-24') %>
+      <%= link_to "Check your company", new_inspection_path , class: 'hero-button-text' %>
+    </div>
+    </div>
+    <div>
+      <%= image_tag('Group 32.svg', class: 'main-image') %>
+    </div>
+    </div>
+  <div class="m-bi">
+    <h1 class="font-64 diflex">Why Choose Us?</h1>
+    <div class="about-box-div">
+      <div class="box-about">
+        <h3 class="diflex">Experts</h3>
+        <p class="font-20 about-box">Specialists in government relations management</p>
+      </div>
+      <div class="box-about">
+        <h3 class="diflex">Quality</h3>
+        <p class="font-20 about-box">High performance quality and rapid execution</p>
+      </div>
+      <div class="box-about">
+        <h3 class="diflex">Consulting</h3>
+        <p class="font-20 about-box">Offering consultations and analytical studies</p>
+      </div>
+    </div>
   </div>
-</div>
 
-  <%= image_tag('Union 170.svg', class: 'deco', id: "deco") %>
-<div></div>
+  <div class="flexi m-bi-320">
+    <div class="image-secondery">
+      <%= image_tag('Group 32.svg', class: 'main-image') %>
+    </div>
+    <div class="po-r-to">
+      <h3 class="diflex font-40">Our Clients</h3>
+      <div class="clients-5 logos">
+        <div class="flexi logos-slide">
+          <%= image_tag('شعار_الاصول_العربية_للعقارات-removebg-preview.png', class: 'clients') %>
+          <%= image_tag('شعار_الشايع_للعزل_الحديث-removebg-preview.png', class: 'clients') %>
+          <%= image_tag('شعار_قهوة_اراء_للقهوة_المختصة-removebg-preview.png', class: 'clients') %>
+          <%= image_tag('شعار_مؤسسة_برواز_وتلاوين-removebg-preview.png', class: 'clients-3') %>
+          <%= image_tag('شعار_مصنع_اطياب_البوادي-removebg-preview.png', class: 'clients') %>
+          <%= image_tag('شعار_مكتب_عبدالعزيز_التويجري_للمحاماة-removebg-preview.png', class: 'clients') %>
+          <%= image_tag('شعار_مهيل_لادارة_المرافق-removebg-preview.png', class: 'clients-4') %>
+          <%= image_tag('شعار_نيّاف_لاونج_وكافيه-removebg-preview.png', class: 'clients-2') %>
+          <!-- Add more client logos here -->
+        </div>
+        <div class="flexi logos-slide">
+          <%= image_tag('شعار_الاصول_العربية_للعقارات-removebg-preview.png', class: 'clients') %>
+          <%= image_tag('شعار_الشايع_للعزل_الحديث-removebg-preview.png', class: 'clients') %>
+          <%= image_tag('شعار_قهوة_اراء_للقهوة_المختصة-removebg-preview.png', class: 'clients') %>
+          <%= image_tag('شعار_مؤسسة_برواز_وتلاوين-removebg-preview.png', class: 'clients-3') %>
+          <%= image_tag('شعار_مصنع_اطياب_البوادي-removebg-preview.png', class: 'clients') %>
+          <%= image_tag('شعار_مكتب_عبدالعزيز_التويجري_للمحاماة-removebg-preview.png', class: 'clients') %>
+          <%= image_tag('شعار_مهيل_لادارة_المرافق-removebg-preview.png', class: 'clients-4') %>
+          <%= image_tag('شعار_نيّاف_لاونج_وكافيه-removebg-preview.png', class: 'clients-2') %>          <!-- Add more client logos here -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="jci m-bi hi footer">
+    <div class="w-55i">
+      <h3 class="diflex m-bi-40 font-40 mt-0i">Connect with Us</h3>
+      <div class="jci">
+        <%= image_tag('image 3.png', class: 'iconi') %>
+        <%= image_tag('image 4.png', class: 'iconi') %>
+        <%= image_tag('image 5.png', class: 'iconi') %>
+        <%= image_tag('image 6.png', class: 'iconi') %>
+      </div>
+    </div>
+    <%= image_tag('logo.PNG', class: 'img-footer') %>
+  </footer>
+</div>

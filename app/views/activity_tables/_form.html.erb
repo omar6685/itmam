@@ -1,0 +1,11 @@
+<%= semantic_form_for @activity_table do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :activity %>
+    <%= f.input :active %>
+    <%= f.input :study, as: :select, collection: CompanySize.pluck(:id), include_blank: true  %>
+  <% end %>
+
+  <%= f.actions do %>
+    <%= f.action :submit, :as => :input %>
+  <% end %>
+<% end %>

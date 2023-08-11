@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Nitak tables</h1>
+
+<div id="nitak_tables">
+  <% @nitak_tables.each do |nitak_table| %>
+    <%= render nitak_table %>
+    <p>
+      <%= link_to "Show this nitak table", nitak_table %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New nitak table", new_nitak_table_path %>

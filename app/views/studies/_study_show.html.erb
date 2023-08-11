@@ -1,0 +1,504 @@
+<div id="<%= dom_id study %>">
+
+  <p>
+    <strong>Activity:</strong>
+    <ul>
+      <% study.activity_tables.each do |activity_table| %>
+        <li>
+          <%= activity_table.activity %>
+          <%= activity_table.active ? "✅" : "❌" %>
+        </li>
+      <% end %>
+    </ul>
+  </p>
+
+  <p>
+    <strong>Branch:</strong>
+    <%= study.branch %>
+  </p>
+
+  <p>
+    <strong>Company size:</strong>
+    <%= study.company_size_id %>
+  </p>
+
+  <p>
+    <strong>Foreigner:</strong>
+    <%= study.foreigner %>
+  </p>
+
+  <p>
+    <strong>Saudi:</strong>
+    <%= study.saudi %>
+  </p>
+
+  <p>
+    <strong>Ajier:</strong>
+    <%= study.ajier %>
+  </p>
+
+  <p>
+    <strong>Special foreigner:</strong>
+    <%= study.special_foreigner %>
+  </p>
+
+  <p>
+    <strong>Special saudis:</strong>
+    <%= study.special_saudis %>
+  </p>
+
+  <p>
+    <strong>Localization rate:</strong>
+    <%= study.localization_rate %>
+  </p>
+
+  <p>
+    <strong>Saudi four:</strong>
+    <%= study.saudi_four %>
+  </p>
+
+  <p>
+    <strong>Saudi three four:</strong>
+    <%= study.saudi_three_four %>
+  </p>
+
+  <p>
+    <strong>Saudi three:</strong>
+    <%= study.saudi_three %>
+  </p>
+
+  <p>
+    <strong>Visa:</strong>
+    <%= study.visa %>
+  </p>
+
+  <p>
+    <strong>Saudi disable:</strong>
+    <%= study.saudi_disable %>
+  </p>
+
+  <p>
+    <strong>Adaptation:</strong>
+    <%= study.adaptation %>
+  </p>
+
+  <p>
+    <strong>Saudi jailed:</strong>
+    <%= study.saudi_jailed %>
+  </p>
+
+  <p>
+    <strong>Saudi student:</strong>
+    <%= study.saudi_student %>
+  </p>
+
+  <p>
+    <strong>Saudi online:</strong>
+    <%= study.saudi_online %>
+  </p>
+
+  <p>
+    <strong>Saudi player:</strong>
+    <%= study.saudi_player %>
+  </p>
+
+  <p>
+    <strong>Saudi loan player:</strong>
+    <%= study.saudi_loan_player %>
+  </p>
+
+  <p>
+    <strong>Foreigner like saudi:</strong>
+    <%= study.foreigner_like_saudi %>
+  </p>
+
+  <p>
+    <strong>Foreigner like foreigner:</strong>
+    <%= study.foreigner_like_foreigner %>
+  </p>
+
+  <p>
+    <strong>Specialy foreigner:</strong>
+    <%= study.specialy_foreigner %>
+  </p>
+
+  <p>
+    <strong>Tribe saudi:</strong>
+    <%= study.tribe_saudi %>
+  </p>
+
+  <p>
+    <strong>Gulf citizen:</strong>
+    <%= study.gulf_citizen %>
+  </p>
+
+  <p>
+    <strong>Owner:</strong>
+    <%= study.owner %>
+  </p>
+
+  <p>
+    <strong>Red week:</strong>
+    <%= study.red_week %>
+  </p>
+
+  <p>
+    <strong>Uncounted saudi:</strong>
+    <%= study.uncounted_saudi %>
+  </p>
+
+  <p>
+    <strong>all_employees:</strong>
+    <%= @all_employees %>
+  </p>
+  <p>
+    <strong>real_employees:</strong>
+    <%= @real_employees %>
+  </p>
+
+  <p>
+  Percentage of special_saudis from all employees: <%= @percentage_special_saudis %>%
+</p>
+
+  <!--<p>
+    <strong>Study Status:</strong>
+    <%= @nitak_tables_count %>
+  </p>-->
+
+
+
+
+<!--<% @nitak_tables.each do |nitak_table| %>
+  <p>
+    Yearly Value: <%= nitak_table.yearly_value %>
+  </p>
+<% end %>
+
+
+
+
+<% @company_status_ids.each do |company_status_id| %>
+  <p>
+    Company Status ID: <%= company_status_id %>
+  </p>
+<% end %>
+
+
+
+<% @company_statuses.each do |company_status| %>
+  <p>
+    Company Status: <%= company_status %>
+  </p>
+<% end %>
+
+
+
+<% @nitak_tables.each do |nitak_table| %>
+  <p>
+    Yearly Value: <%= nitak_table.fixed_value %>
+  </p>
+<% end %>
+
+<% @study_statuses.each do |id, values| %>
+  <p>
+    Yearly Value for Nitak Table ID <%= id %>: <%= values[:yearly_value] %>
+  </p>
+  <p>
+    Fixed Value for Nitak Table ID <%= id %>: <%= values[:fixed_value] %>
+  </p>
+<% end %>
+<br>
+<% @study_statuses.each do |id, values| %>
+  <p>
+    Calculation Result for Nitak Table ID <%= id %>:
+    <% if values[:fixed_value].present? && values[:yearly_value].present? %>
+      <% calculation_result = values[:fixed_value] * Math.log(@all_employees) + values[:yearly_value] %>
+      <%= calculation_result.round(2) %>
+
+
+    <% end %>
+
+  </p>
+<% end %>-->
+
+
+<br>
+<% calculation_results = {} %>
+
+<% @study_statuses.each do |id, values| %>
+  <% if values[:fixed_value].present? && values[:yearly_value].present? && @study.special_foreigner.present? && @study.special_foreigner.is_a?(Numeric) %>
+    <% calculation_result = values[:fixed_value] * Math.log(@all_employees.ceil) + values[:yearly_value] %>
+    <%calcu = calculation_result.round(2) %>
+    <% calculation_results[id] = calcu %>
+  <% end %>
+<% end %>
+
+<% calculation_results.each_with_index do |(id, calculation_result), index| %>
+  <p>
+    <% case index %>
+    <% when 0 %>
+      <% if @percentage_special_saudis < calculation_result %>
+        the current status (red)
+      <% elsif @percentage_special_saudis >= calculation_result && @percentage_special_saudis < calculation_results.values[1] %>
+        the current status (low Green)
+      <% end %>
+    <% when 1 %>
+      <% if @percentage_special_saudis >= calculation_result && @percentage_special_saudis < calculation_results.values[2] %>
+        the current status (mid Green)
+      <% end %>
+    <% when 2 %>
+      <% if @percentage_special_saudis >= calculation_result && @percentage_special_saudis < calculation_results.values[3] %>
+        the current status (heigh Green)
+      <% end %>
+    <% when 3 %>
+      <% if @percentage_special_saudis >= calculation_result %>
+        the current status (Platinum)
+      <% end %>
+    <% end %>
+  </p>
+<% end %>
+
+
+
+<% calculation_results.each_with_index do |(id, calculation_result), index| %>
+  <p>
+        <% saudis_needed =  (calculation_result.to_f * @study.special_foreigner.to_f)/(100 - calculation_result.to_f) %>
+        <% not_needed = (@study.special_saudis - saudis_needed).round(1) %>
+        <% save_money_monthly = not_needed*2000 %>
+        <% save_money_yearly = save_money_monthly * 12 %>
+        <% needed_money_monthly = (not_needed*2000).abs %>
+        <% needed_money_yearly = needed_money_monthly* 12 %>
+    <% case index %>
+    <% when 0 %>
+        To reach this status you need to <%= saudis_needed.round(1) %> Saudis.
+        <% if not_needed > 0 %>
+          not needed saudis are <%=not_needed %>
+          money will be saved monthly <%=  save_money_monthly %>
+          money will be saved yearly <%=  save_money_yearly %>
+        <% else %>
+          <%=not_needed.abs %>
+
+          money needed monthly <%=  needed_money_monthly %>
+          money needed yearly <%=  needed_money_yearly %>
+        <% end %>
+        <% foreigners_needed =  ((100 * @study.special_saudis.to_f) / calculation_result ) - @study.special_saudis.to_f%>
+        <% if foreigners_needed > @study.special_foreigner %>
+          (no action needed)
+        <% else %>
+          you need no dismes <%= n_foreigners_needed = (@study.special_foreigner - foreigners_needed).round(1)%> foreigners
+        <% end %>
+        (low Green)
+    <% when 1 %>
+        the min precentage of the status Mid Green <%= calculation_result %>
+
+        To reach this status you need to <%= saudis_needed.round(1).ceil %> Saudis.
+
+
+        <% if not_needed > 0 %>
+          not needed saudis are <%=not_needed %>
+          money will be saved monthly <%=  save_money_monthly %>
+          money will be saved yearly <%=  save_money_yearly %>
+        <% else %>
+          <%=not_needed.abs %>
+
+          money needed monthly <%=  needed_money_monthly %>
+          money needed yearly <%=  needed_money_yearly %>
+        <% end %>
+        <% foreigners_needed =  ((100 * @study.special_saudis.to_f) / calculation_result ) - @study.special_saudis.to_f%>
+        <% if foreigners_needed > @study.special_foreigner %>
+          (no action needed)
+        <% else %>
+          you need no dismes <%= n_foreigners_needed = (@study.special_foreigner - foreigners_needed).round(1)%> foreigners
+        <% end %>
+      (Mid Green)
+    <% when 2 %>
+        the min precentage of the status High Green<%= calculation_result %>
+
+        To reach this status you need to <%= saudis_needed.round(1) %> Saudis.
+
+
+        <% if not_needed > 0 %>
+          not needed saudis are <%=not_needed %>
+          money will be saved monthly <%=  save_money_monthly %>
+          money will be saved yearly <%=  save_money_yearly %>
+        <% else %>
+          <%=not_needed.abs %>
+
+          money needed monthly <%=  needed_money_monthly %>
+          money needed yearly <%=  needed_money_yearly %>
+        <% end %>
+        <% foreigners_needed =  ((100 * @study.special_saudis.to_f) / calculation_result ) - @study.special_saudis.to_f%>
+        <% if foreigners_needed > @study.special_foreigner %>
+          (no action needed)
+        <% else %>
+          you need no dismes <%= n_foreigners_needed = (@study.special_foreigner - foreigners_needed).round(1)%> foreigners
+        <% end %>
+      (High Green)
+    <% when 3 %>
+        the min precentage of the status Platinum <%= calculation_result %>
+
+        To reach this status you need to <%= saudis_needed.round(1) %> Saudis.
+
+
+        <% if not_needed > 0 %>
+          not needed saudis are <%=not_needed %>
+          money will be saved monthly <%=  save_money_monthly %>
+          money will be saved yearly <%=  save_money_yearly %>
+        <% else %>
+          <%=not_needed.abs %>
+
+          money needed monthly <%=  needed_money_monthly %>
+          money needed yearly <%=  needed_money_yearly %>
+        <% end %>
+        <% foreigners_needed =  ((100 * @study.special_saudis.to_f) / calculation_result ) - @study.special_saudis.to_f%>
+        <% if foreigners_needed > @study.special_foreigner %>
+          (no action needed)
+        <% else %>
+          you need no dismes <%= n_foreigners_needed = (@study.special_foreigner - foreigners_needed).round(1)%> foreigners
+        <% end %>
+      (Platinum)
+    <% end %>
+  </p>
+<% end %>
+
+
+
+
+
+
+
+<p>
+  <strong>الإرشادات:</strong>
+  <ul>
+    <% if study.activity_tables.size > 1 %>
+      <li>
+         يرجى التأكد من أن هذا النشاط هو النشاط الفعلي لمنشأتكم
+         حيث أن وزارة الموارد البشرية تعتمد النشاط الاعلى في نسبة التوطين في حال تعددت الانشطة بالسجل التجاري</li>
+    <% end %>
+    <% if study.branch.size > 0 %>
+      <li>
+         تشير البيانات بوجود فروع مرتبطة بنفس كيان منشأتكم وهي <%= study.branch %> وعليه فإن نطاق
+         هذه الفروع هو نفس نطاق المنشأة
+          الحالية وأي عملية إضافة أو استبعاد سواء للسعوديين
+           او الاجانب في أي فرع من هذه
+           الفروع فإنه يؤثر على نطاق الكيان الاجمالي</li>
+    <% end %>
+    <% if !study.adaptation && study.saudi_disable.present? && study.saudi_disable != 0  %>
+      <% if study.company_size_id > 2 %>
+        <li> تشير بيانات المنشأة بعدم وجود شهادة موائمة
+          حيث أن شهادة موائمة مطلوبة للمنشآت المتوسطة فما فوق في حال وجود موظفين سعوديين
+           ذوي اعاقة لاحتسابهم ب4 سعوديين.
+        </li>
+      <% elsif study.company_size_id < 3 %>
+        <li>
+          تشير البيانات بأن حجم
+           منشأتكم ...صغير.... وبوجود عدد <%= study.saudi_disable %> من ذوي الاحتياجات الخاصة وهذا أمر جيد حيث يتم
+           احتساب المعاق في المنشآت الصغيرة ب 4 سعوديين دون الحاجة لاصدار شهادة موائمة
+        </li>
+      <% end %>
+    <% elsif study.adaptation && study.saudi_disable.present? && study.saudi_disable != 0   %>
+
+        <li>
+          تشير البيانات بوجود عدد <%= study.saudi_disable %> من ذوي الاحتياجات الخاصة لديكم كما
+           أن لديكم شهادة موائمة وهذا
+           يعني بأن كل معاق محتسب ب4 سعوديين وهذا امر جيد.
+        </li>
+    <% end %>
+    <% if  study.saudi_three_four.present? && study.saudi_three_four != 0 %>
+      <li> تشير البيانات بوجود عدد <%= study.saudi_three_four %> سعودي رواتبهم (أجر الاشتراك في التامينات) أكثر من 3000 ريال وأقل من 4000 ريال وهذا يعني بأنه يتم احتسابهم بنصف سعودي مما يؤثر سلباً على نطاق المنشأة ومن الافضل رفع أجر الاشتراك الى 4000 ريال كحد أدنى ليتم احتساب كل واحد منهم بسعودي واحد بالنطاق</li>
+    <% end %>
+    <% if study.saudi_three.present? && study.saudi_three != 0 %>
+      <li> تشير البيانات بوجود عدد <%= study.saudi_three %> سعودي رواتبه (اجر الاشتراك في التامينات)
+      أقل من 3000 ريال وهذا يعني بأنه لا يتم احتسابهم في نطاق المنشأة مما يؤثر سلباً على النطاق
+       ومن الافضل رفع أجر الاشتراك الى 4000 ريال كحد أدنى ليتم احتساب كل واحد منهم بسعودي واحد بالنطاق </li>
+    <% end %>
+    <% if study.visa.present? && study.visa != 0 %>
+      <li> تشير البيانات بوجود عدد <%= study.visa %> تأشيرة عمل مصدرة لم
+       تستخدم حتى الان وهي داخلة في عدد الاجانب باحتساب
+      نطاقات، يمكنكم الغائها واسترداد مبالغها في حال
+       عدم الاستعمال حتى لا تؤثر سلباً على نطاق المنشأة </li>
+    <% end %>
+    <% if study.saudi_jailed.present? && study.saudi_jailed != 0 %>
+      <li> تشير البيانات بوجود عدد <%= study.saudi_jailed %> سعودي
+      سجين مفرج عنه لديكم ويحتسب بأثنين
+       سعوديين وهذا أمر جيد ومفيد في رفع
+      نطاق المنشأة </li>
+    <% end %>
+    <% if study.saudi_student.present? && study.saudi_student != 0  %>
+      <li> تشير البيانات بوجود عدد <%= study.saudi_student %> طلاب سعوديين في
+       منشأتكم وهذا يعني احتساب كل طالب بنصف سعودي وعليكم
+       التأكد من كونهم طلاب فعلا ام لا، اذا لم يكونوا طلاب
+       فعليكم التأكد من عدم تسجيلهم كطلاب في التأمينات
+      الاجتماعية او الطلب منهم تحديث بيانات المهنة
+       في الاحوال المدنية لكي يتم
+      احتساب كل طالب بسعودي كامل </li>
+    <% end %>
+    <% if study.saudi_online.present? && study.saudi_online != 0 %>
+      <li> تشير البيانات بأن لديكم عدد <%= study.saudi_online %> مسجلين في
+       نظام العمل عن بعد وعليه يجب عليكم التأكد
+       من أنكم متعاقدين مع أحد الشركات المعتمدة
+      لدى وزارة الموارد البشرية لتسجيل العاملين
+      بنظام العمل عن بعد وذلك تجنباً للمخالفات </li>
+    <% end %>
+    <% if study.foreigner_like_saudi.present? && study.foreigner_like_saudi != 0 %>
+      <li> تشير البيانات بوجود عمالة من الجنسيات المعفاة من الابعاد ( الفلسطيني بوثيقة مصرية -
+        البلوشي - التركستاني - البروماوي )
+        حيث أن هذه
+         الجنسيات تحسب بربع أجنبي بشرط
+         أن لا تتجاوز نسبتهم 50% من عدد العاملين في المنشأة وهذا أمر جيد يخفف من عبء التوطين غير الضروري
+          </li>
+    <% end %>
+    <% if study.foreigner_like_foreigner.present? && study.foreigner_like_foreigner != 0 %>
+      <li> تشير البيانات بوجود عمالة من الجنسيات المعفاة من الابعاد ( الفلسطيني بوثيقة مصرية
+         - البلوشي - التركستاني - البروماوي ) حيث أن هذه
+         الجنسيات تحسب بربع أجنبي بشرط أن لا تتجاوز نسبتهم 50% من عدد
+         العاملين في المنشأة وهذا أمر جيد يخفف من عبء التوطين غير الضروري  </li>
+    <% end %>
+    <% if study.specialy_foreigner.present? && study.specialy_foreigner != 0 %>
+      <li> تشير البيانات بوجود عدد <%= study.specialy_foreigner %> وافد خاص في المنشأة لديكم وعليكم
+        التأكد من أن هذا هو العدد الفعلي للوافدين الخاصين المسجلين حيث أن الوافد الخاص يحسب كمواطن سعودي واحد
+         ( الوفد الخاص هو ابن وبنت المواطنة السعودية )، في بعض الاحيان تحدث مشاكل تقنية ولا يتم احتساب
+         الوافد الخاص كسعودي فعليكم التأكد من ذلك بشكل اسبوعي في
+         نطاق المنشأة او التواصل مع وزارة العمل للتأكد من ذلك </li>
+    <% end %>
+    <% if study.tribe_saudi.present? && study.tribe_saudi != 0 %>
+      <li> تشير البيانات بوجود عدد <%= study.tribe_saudi %> من القبائل النازحة
+      في المنشأة لديكم وعليكم التأكد من أن هذا هو العدد
+      الفعلي للعاملين من القابائل النازحة المسجلين حيث
+      أن موظف القبائل النازحة يحسب كمواطن سعودي واحد  ( من يحملون بطاقة خمس سنوات او اقامة قبائل نازحة )،
+       في بعض الاحيان تحدث مشاكل تقنية ولا يتم احتساب موظف القبائل
+       النازحة  كسعودي فعليكم التأكد من ذلك بشكل اسبوعي في نطاق المنشأة او التواصل مع وزارة العمل للتأكد
+      من
+      ذلك </li>
+    <% end %>
+    <% if study.gulf_citizen.present? && study.gulf_citizen != 0 %>
+      <li> تشير البيانات الى وجود عدد <%= study.gulf_citizen %> موظف من مواطني مجلس التعاون
+      في منشأتكم علماً أن مواطن مجلس التعاون يعامل
+       كمعاملة السعودي في نطاق المنشأة وهذا أمر جيد </li>
+    <% end %>
+    <% if study.owner.present? && study.owner != 0 %>
+      <li> تشير البيانات باحتساب مالك المنشأة
+        ضمن بيانات السعوديين المحتسبين في النطاق وهذا امر جيد يساعد في رفع نسبة التوطين لديكم. ملاحظة:
+         في حال كانت منشأتكم صغيرة وبها 9 عاملين فأقل فإنه يتم إعفاء عدد 2 من العاملين الاجانب من المقابل
+        المالي وفي حال توظيف سعودي آخر بجانب مالك المنشأة فإنه سيتم إعفاء عدد 2 آخرين من المقابل المالي. </li>
+    <% end %>
+    <% if study.red_week.present? && study.red_week != 0 %>
+      <li> تنبيه: في حال كانت منشأتكم في النطاق الاحمر عليكم الانتباه من
+         عدم تجاوز عدد 4 اسابيع متصلة او 8 اسابيع منفصلة في النطاق الاحمر خلال آخر 26 اسبوع، في حال كان كذلك
+        فإنه يتوجب عليكم رفع مستوى التوطين بمستوى اعلى من النسبة المطلوبة للعودة للنطاق الاخضر بشكل أسرع </li>
+    <% end %>
+    <% if study.uncounted_saudi.present? && study.uncounted_saudi != 0 %>
+      <li> تشير البيانات بوجود عدد <%= study.uncounted_saudi %> سعودي غير محتسب
+      في معامل التوطين وهذا يعني أحد ثلاث حالات الأولى (إذا كان مسجل في التأمينات واسمه ليس ظاهراً في وزارة
+      العمل هذا يعني أنه لم يدخل في احتساب معامل نسبة التوطين
+      لديكم حتى الان ويتوجب عليكم التحقق من عدم تسجيله في منشأة
+      أخرى، وفي حال كان مسجل على منشأة أخرى يتوجب استبعاده
+      من المنشأة السابقة ليتم احتسابه في نسبة التوطين لديكم). الثانية (إذا كان مسجل بالتأمينات واسمه ظاهر في
+       وزارة العمل يرجى التحقق من مجموع أجر
+      الاشتراك للموظف المسجل بالتأمينات
+      أساسي وبدل سكن لا يقل عن 4000 ريال). الثالثة (أنه لم يتم توثيق العقد الالكتروني للموظف في التأمينات
+       الاجتماعية ويلزم قبول العقد من قبل الموظف ليتم الاحتساب). </li>
+    <% end %>
+  </ul>
+</p>
+</div>
