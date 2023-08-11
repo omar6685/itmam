@@ -1,0 +1,438 @@
+html {
+    overflow-x: hidden;
+}
+
+body {
+    background: #EDEDF0;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    margin-top: 65px;
+    margin-bottom: 65px;
+}
+
+.nav .logo {
+    width: auto;
+    height: auto;
+    padding-left: 3rem;
+    position: relative;
+    bottom: 10px;
+}
+
+
+.img_logo {
+
+    width: 196px;
+    height: 75px;
+}
+
+.nav .main_list {
+    height: 35px;
+}
+
+.nav ul {
+    width: 100%;
+    height: 35px;
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav ul li {
+    width: auto;
+    height: 35px;
+    padding: 0;
+    padding-right: 3rem;
+}
+
+
+.nav ul li a {
+    text-decoration: none;
+    color: #000000;
+    line-height: 35px;
+    font-size: 16px;
+}
+
+
+.nav ul li a:hover {
+    color: #341283;
+}
+
+
+/* Existing CSS code here */
+
+/* Responsive Navbar */
+@media screen and (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav .main_list {
+        display: none;
+    }
+
+    .nav ul {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav ul li {
+        padding: 1rem 0;
+        text-align: center;
+    }
+
+    .nav ul li a {
+        padding: 10px 15px;
+        display: block;
+        border-radius: 5px;
+    }
+
+    .nav ul li a:hover {
+        background-color: #329fda;
+        color: white;
+    }
+
+    .nav .logo {
+        padding-left: 0;
+        margin-bottom: 1rem;
+    }
+}
+
+
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 200px;
+}
+
+.mx_wi {
+    max-width: 50%;
+}
+
+.font-64 {
+    font-size: 64px;
+    margin-bottom: 0px;
+    margin-bottom: 45px;
+}
+
+.font-20 {
+    font-size: 20px;
+}
+
+.main-image {
+    width: 350px;
+    position: relative;
+    left: 175px;
+}
+
+.hero-button {
+    display: flex;
+    width: 240px;
+    height: 41px;
+    justify-content: space-around;
+    border-radius: 20px;
+    background: #b5c3c6;
+    border: none;
+}
+
+.hero-button:hover {
+    display: flex;
+    width: 240px;
+    height: 41px;
+    justify-content: space-around;
+    border-radius: 20px;
+    background: #329fda;
+    border: none;
+    transition: all ease 0.9s;
+    color: white;
+}
+
+.wi-24 {
+    width: 24px;
+}
+
+.hero-button-text {
+    position: relative;
+    font-size: 20px;
+    top: 8px;
+    right: 13px;
+}
+
+/* Responsive hero */
+@media screen and (max-width: 768px) {
+
+    .hero {
+        display: block;
+        margin-bottom: 120px;
+    }
+
+    .font-96 {
+        font-size: 66px;
+        width: 250%;
+    }
+
+    .main-image {
+        top: 60px;
+
+    }
+}
+
+
+.font-96 {
+    font-size: 96px;
+}
+
+.diflex {
+    display: flex;
+    justify-content: center;
+}
+
+
+.about-box-div {
+    display: flex;
+    justify-content: space-around;
+}
+
+.about-box {
+    width: 200px;
+    text-align: center;
+}
+
+.box-about {
+    padding: 15px;
+    width: 200px;
+    text-align: center;
+    border-radius: 13px;
+}
+
+.box-about:hover {
+    padding: 15px;
+    width: 200px;
+    text-align: center;
+    border-radius: 13px;
+    transform: translateY(-25px);
+    color: white;
+    transition: all ease 0.9s;
+    background: #329fda;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.image-secondery {
+    position: absolute;
+    left: -314px;
+    z-index: -9;
+    margin-top: 75px;
+    opacity: 0.5;
+    filter: blur(5px);
+}
+
+.flexi {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.jci {
+    display: flex;
+    justify-content: space-around;
+}
+
+.clients {
+    width: 120px;
+    height: 120px;
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+.clients-2 {
+    width: 380px;
+    height: 120px;
+}
+
+.m-bi {
+    margin-bottom: 80px;
+}
+
+.m-bi-40 {
+    margin-bottom: 65px;
+}
+
+.po-r-to {
+    top: 80px;
+    position: relative;
+}
+
+.m-bi-320 {
+
+    margin-bottom: 400px;
+}
+
+.w-55i {
+    width: 55%;
+}
+
+.iconi {
+    width: 40px;
+    height: 40px;
+}
+
+.clients-3 {
+    margin: auto;
+    width: 120px;
+    height: 77px;
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+.clients-4 {
+    margin: auto;
+    width: 250px;
+    height: 50px;
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+.font-40 {
+    font-size: 40px;
+}
+
+.hi {
+    height: 300px;
+}
+
+.mt-0i {
+    margin-top: 0;
+}
+
+.img-footer {
+    width: 400px;
+    height: 140px;
+    position: relative;
+    bottom: -30px;
+}
+
+.clients-5 {
+    width: 65%;
+    overflow: hidden;
+    margin-left: 17%;
+}
+
+
+
+@media screen and (max-width: 500px) {
+    .mx_wi {
+        max-width: none;
+    }
+
+    .font-96 {
+        font-size: 59px;
+        width: 163%;
+    }
+
+    .main-image {
+        left: -15px;
+    }
+
+    .font-64 {
+        font-size: 45px;
+    }
+
+    .about-box-div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .box-about {
+        margin: auto;
+    }
+}
+
+@keyframes slide {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.logos {
+    display: flex;
+}
+
+.logos-slide {
+    animation: 25s slide infinite linear;
+}
+
+.logos:hover .logos-slide {
+    animation-play-state: paused;
+}
+
+
+@media screen and (max-width: 500px) {
+    .footer {
+        display: block;
+    }
+
+    .w-55i {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .img-footer {
+        width: 300px;
+        height: 110px;
+        position: relative;
+        bottom: -30px;
+        left: 55px;
+    }
+}
+
+@media screen and (max-width: 321px) {
+
+    .img-footer {
+        left: 2px;
+    }
+}
+
+@media screen and (max-width: 376px) {
+
+    .img-footer {
+        left: 30px;
+    }
+}
+
+@media screen and (max-width: 465px) {
+    .font-96 {
+        font-size: 40px;
+    }
+
+    .main-image {
+        left: -35px;
+    }
+
+    .font-64 {
+        font-size: 38px;
+    }
+
+    .img-footer {
+        left: 5px;
+    }
+}
