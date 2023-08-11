@@ -14,7 +14,7 @@
   <button type="button" data-action="nested-form#add">Add activity</button>
   <%# End Custom Logic %>
     <%= f.input :branch %>
-    <%= f.input :company_size %>
+    <%= f.input :company_size, as: :select, collection: CompanySize.pluck(:size, :id), include_blank: true  %>
     <%= f.input :foreigner %>
     <%= f.input :saudi %>
     <%= f.input :ajier %>

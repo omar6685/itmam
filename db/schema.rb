@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_01_160315) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_02_150359) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -84,7 +84,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_01_160315) do
     t.integer "saudi_loan_player"
     t.integer "foreigner_like_saudi"
     t.integer "foreigner_like_foreigner"
-    t.integer "specialy_foreigner"
+    t.decimal "specialy_foreigner", precision: 10, scale: 2
     t.integer "tribe_saudi"
     t.integer "gulf_citizen"
     t.integer "owner"

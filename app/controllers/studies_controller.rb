@@ -8,6 +8,45 @@ class StudiesController < ApplicationController
 
   # GET /studies/1 or /studies/1.json
   def show
+    @real_employees = @study.foreigner.to_i + @study.saudi.to_i
+
+
+    @all_employees = @study.special_foreigner.to_f + @study.special_saudis.to_f
+
+
+    @percentage_special_saudis = (@study.special_saudis.to_f / @all_employees) * 100
+
+    @nitak_tables_count = NitakTable.joins(:activity_table)
+    .where(activity_tables: { activity: @study.activity_tables.first.activity })
+    .count
+
+
+    @nitak_tables = NitakTable.joins(:activity_table)
+    .where(activity_tables: { activity: @study.activity_tables.first.activity })
+
+
+    @company_status_ids = NitakTable.joins(:activity_table)
+    .where(activity_tables: { activity: @study.activity_tables.first.activity })
+    .pluck(:company_status_id)
+    .uniq
+
+
+    @company_statuses = CompanyStatus.where(id: @company_status_ids).pluck(:status)
+
+
+    study_statuses = {}
+
+    @nitak_tables.each do |nitak_table|
+      study_statuses[nitak_table.id] = {
+        yearly_value: nitak_table.yearly_value,
+        fixed_value: nitak_table.fixed_value
+      }
+    end
+
+    # Pass the variables to the view
+    @study_statuses = study_statuses
+
+
   end
 
   # GET /studies/new
