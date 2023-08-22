@@ -640,6 +640,11 @@ a {
     .grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
+.display-none {
+    display: none;
+}
+
         }
 @media screen and (max-width: 500px) {
 
