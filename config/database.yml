@@ -83,4 +83,5 @@ production:
   <<: *default
   database: ddl84vhefgoq7q
   username: mdwstfltsvhqbx
-  password: <%= ENV["ITMAM_DATABASE_PASSWORD"] %>
+  password: acbb74594c88f44bd053128ac5e8a901f55afdba77336055629de46fddfabf54
+
