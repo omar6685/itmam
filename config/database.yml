@@ -81,6 +81,6 @@ development:
 #
 production:
   <<: *default
-  database: dd8jt9ms63bfsu
+  database: ddl84vhefgoq7q
   username: postgres
   password: <%= ENV["ITMAM_DATABASE_PASSWORD"] %>
